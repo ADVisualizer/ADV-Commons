@@ -5,7 +5,4 @@ package ch.hsr.adv.commons.core.logic.domain;
  */
 public class Session {
 
-    private long sessionId;
-    private String sessionName;
-
 }
