@@ -12,7 +12,7 @@ plugins {
 }
 
 group = 'ch.hsr.adv'
-version = '0.1'
+version = '0.3'
 
 /****************************************
  * instructions for all projects
@@ -25,7 +25,6 @@ allprojects {
     apply plugin: 'com.bmuschko.nexus'
 
     repositories {
-        jcenter()
         mavenCentral()
     }
 
@@ -74,15 +73,10 @@ subprojects {
     dependencies {
         //only use slf4j implementation (e.g. logback) in core
         compile "org.slf4j:slf4j-api:1+"
-        compile 'de.jensd:shichimifx:1.0.5'
-        compile group: 'com.google.inject', name: 'guice', version: '4+'
-        compile group: 'com.google.inject.extensions', name: 'guice-assistedinject', version: '4+'
-        compile group: 'com.google.code.gson', name: 'gson', version: '2+'
+        compile group: 'com.google.inject', name: 'guice', version: '4.2.0'
 
-
-        testCompile 'junit:junit:4+'
+        testCompile "junit:junit:4+"
         testCompile 'org.jukito:jukito:1+'
-        testCompile 'org.hamcrest:hamcrest-library:1+'
     }
 }
 
@@ -101,13 +95,9 @@ dependencies {
 
 jar {
     dependsOn configurations.childJars
+    exclude('**/logback.xml')
     from { configurations.childJars.collect { zipTree(it) } }
-    exclude("**/logback.xml")
-    manifest {
-        attributes 'Main-Class': 'ch.hsr.adv.ui.bootstrapper.Bootstrapper'
-    }
 }
-
 
 task jacocoRootReport(type: JacocoReport) {
 
@@ -138,7 +128,6 @@ task jacocoRootReport(type: JacocoReport) {
 
 check.finalizedBy(jacocoRootReport)
 
-
 /****************************************
  * Nexus deployment (needed for Maven Central)
  ****************************************/
@@ -150,9 +139,9 @@ modifyPom {
         inceptionYear '2018'
 
         scm {
-            url 'https://github.com/ADVisualizer/ADV-UI'
-            connection 'https://git@github.com/ADVisualizer/ADV-UI.git'
-            developerConnection 'scm:git:https://github.com/ADVisualizer/ADV-UI.git'
+            url 'https://github.com/ADVisualizer/ADV-Commons'
+            connection 'https://git@github.com/ADVisualizer/ADV-Commons.git'
+            developerConnection 'scm:git:https://github.com/ADVisualizer/ADV-Commons.git'
         }
 
         licenses {
@@ -171,7 +160,7 @@ modifyPom {
             }
             developer {
                 id 'mtrentini'
-                name 'Murièle Trentini'
+                name 'Muriele Trentini'
                 email 'mtrentin@hsr.ch'
             }
         }
@@ -189,11 +178,5 @@ nexus {
     repositoryUrl = 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
     snapshotRepositoryUrl = 'https://oss.sonatype.org/content/repositories/snapshots'
 }
-
-
-
-
-
-
 
 
