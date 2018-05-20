@@ -1,0 +1,15 @@
+/****************************************
+ * The settings file is used to specify 
+ * which projects to include in your build.
+ ****************************************/
+rootProject.name = 'adv-commons'
+
+//-- gradle submodules --//
+// ADV Core
+include 'commons-core'
+
+//ADV Modules
+include 'module-array'
+include 'module-stack'
+include 'module-graph'
+
