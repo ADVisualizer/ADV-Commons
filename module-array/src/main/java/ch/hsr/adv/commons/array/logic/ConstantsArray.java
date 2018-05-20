@@ -3,7 +3,7 @@ package ch.hsr.adv.commons.array.logic;
 /**
  * Array module-specific constants
  */
-public class ModuleConstants {
+public class ConstantsArray {
 
     /**
      * Module name

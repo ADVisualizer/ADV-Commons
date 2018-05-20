@@ -3,7 +3,7 @@ package ch.hsr.adv.commons.stack.logic;
 /**
  * Stack module-specific constants
  */
-public class ModuleConstants {
+public class ConstantsStack {
 
     /**
      * Module name
