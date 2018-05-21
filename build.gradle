@@ -25,6 +25,7 @@ allprojects {
     apply plugin: 'com.bmuschko.nexus'
 
     repositories {
+        jcenter()
         mavenCentral()
     }
 
