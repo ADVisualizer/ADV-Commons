@@ -9,6 +9,7 @@ buildscript {
 
 plugins {
     id 'com.github.spotbugs' version '1.6.0'
+    id "com.jfrog.bintray" version "1.7.3"
 }
 
 group = 'ch.hsr.adv'
@@ -21,6 +22,7 @@ allprojects {
     apply plugin: 'idea'
     apply plugin: 'java'
     apply plugin: 'maven'
+    apply plugin: 'maven-publish'
     apply plugin: 'jacoco'
     apply plugin: 'com.bmuschko.nexus'
 
@@ -97,9 +99,15 @@ dependencies {
 jar {
     dependsOn configurations.childJars
     exclude('**/logback.xml')
+    baseName project.name
+    version project.version
     from { configurations.childJars.collect { zipTree(it) } }
 }
 
+
+/****************************************
+ * Test coverage upload
+ ****************************************/
 task jacocoRootReport(type: JacocoReport) {
 
     dependsOn = subprojects.test
@@ -130,54 +138,80 @@ task jacocoRootReport(type: JacocoReport) {
 check.finalizedBy(jacocoRootReport)
 
 /****************************************
- * Nexus deployment (needed for Maven Central)
+ * Bintray deployment (needed for Maven Central)
  ****************************************/
-modifyPom {
-    project {
-        name 'Algorithm & Data Structure Visualizer'
-        description 'Commons component which groups the common classes'
-        url 'https://github.com/ADVisualizer'
-        inceptionYear '2018'
+bintray {
+    user = System.getenv('BINTRAY_USER')
+    key = System.getenv('BINTRAY_KEY')
+    publications = ['MavenCustom']
+    pkg {
+        repo = 'adv'
+        name = 'adv'
+        userOrg = 'adv'
+        licenses = ['AGPL-V3']
+        vcsUrl = 'https://github.com/ADVisualizer/ADV-Commons.git'
+    }
+    version {
+        name = project.version
+        released = new Date()
+    }
+}
 
-        scm {
-            url 'https://github.com/ADVisualizer/ADV-Commons'
-            connection 'https://git@github.com/ADVisualizer/ADV-Commons.git'
-            developerConnection 'scm:git:https://github.com/ADVisualizer/ADV-Commons.git'
+// Create the pom configuration:
+def pomConfig = {
+    licenses {
+        license {
+            name 'GNU AFFERO GENERAL PUBLIC LICENSE, Version 3.0'
+            url 'https://www.gnu.org/licenses/agpl.txt'
+            distribution 'repo'
         }
-
-        licenses {
-            license {
-                name 'GNU AFFERO GENERAL PUBLIC LICENSE, Version 3.0'
-                url 'https://www.gnu.org/licenses/agpl.txt'
-                distribution 'repo'
-            }
+    }
+    developers {
+        developer {
+            id 'mwieland'
+            name 'Michael Wieland'
+            email 'mwieland@hsr.ch'
         }
+        developer {
+            id 'mtrentini'
+            name 'Muriele Trentini'
+            email 'mtrentin@hsr.ch'
+        }
+    }
 
-        developers {
-            developer {
-                id 'mwieland'
-                name 'Michael Wieland'
-                email 'mwieland@hsr.ch'
-            }
-            developer {
-                id 'mtrentini'
-                name 'Muriele Trentini'
-                email 'mtrentin@hsr.ch'
+    scm {
+        url 'https://github.com/ADVisualizer/ADV-UI'
+        connection 'https://git@github.com/ADVisualizer/ADV-UI.git'
+        developerConnection 'scm:git:https://github.com/ADVisualizer/ADV-UI.git'
+    }
+}
+
+// Create the publication with the pom configuration:
+publishing {
+    publications {
+        MavenCustom(MavenPublication) {
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+            groupId 'ch.hsr.adv'
+            artifactId project.name
+            version project.version
+            pom.withXml {
+                def root = asNode()
+                root.appendNode('description', 'Common classes of the algorithm and data structure visualizer project')
+                root.appendNode('name', 'ADV Commons')
+                root.appendNode('url', 'https://github.com/ADVisualizer/ADV-Commons')
+                root.children().last() + pomConfig
             }
         }
     }
 }
 
-extraArchive {
-    sources = true
-    tests = false
-    javadoc = true
+model {
+    tasks.generatePomFileForMavenCustomPublication {
+        destination = file("$buildDir/libs/pom.xml")
+    }
 }
 
-nexus {
-    sign = true
-    repositoryUrl = 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
-    snapshotRepositoryUrl = 'https://oss.sonatype.org/content/repositories/snapshots'
-}
 
 

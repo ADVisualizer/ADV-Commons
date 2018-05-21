@@ -15,8 +15,7 @@
   },
   "files":
   [
-    {"includePattern": "build/libs/(.*)", "uploadPattern": "/$1"},
-    {"includePattern": "build/poms/(.*)", "uploadPattern": "/$1"}
+    {"includePattern": "build/libs/(.*)", "uploadPattern": "ch/hsr/adv/0.1/$1"}
   ],
   "publish": true
 }

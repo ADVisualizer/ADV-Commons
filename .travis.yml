@@ -1,32 +1,38 @@
 dist: trusty
 language: java
-dist: trusty
 jdk:
   - oraclejdk9
 
 # Cache gradle
 before_cache:
-- rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-- rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 
 cache:
   directories:
   - "$HOME/.gradle/caches/"
   - "$HOME/.gradle/wrapper/"
 
-notifications:
-  email:
-    on_success: never
-    on_failure: always
+before_install:
+  -chmod +x gradlew
 
 # Deploy master commits to bintray
+before_deploy:
+  - ./gradlew generatePomFileForMavenCustomPublication
+
 deploy:
   provider: bintray
-  # on: master
   on:
     all_branches: true
+  # on: master
   file: ./bintray.json
   skip_cleanup: true
   user: mwieland
   key:
     secure: a7k2mhQsYoAPQdcclSnx/WX8Qyf33h6fUeiItIYvvNl4wVo6HMSPjr6pxV+qvHFb2/HKPyJIw13iyBQ+IP9o3ByIYR0JnMOiTGB7HEd5k90vngkej5u45RzLxu60gSz6nQt/S4WE076oVRY2sewyWVSvnxlk9LjQbgYT+fOQlWeWBya/z270lAnj5swegalmCBLVXZ1NkB6xZCTFq9Wmuu51l2w1zsYVODBejTNccCt2Vhbeu7X3Q+LHkI6x6yB/R5axWuGB2qB9zNbvxFET4Tr/MtK/B0OtIZRdobLFp5bDertyAOEjg8C0PgqiuHGVeHkCCZggBu0+a0zunuh0C7DTv5UmQEeb3OgRhrmH5eAlj07Am1bYkaAqhawSKshAwg95CkXyfsHgnOxfP0ULmnG4Fny9ltuENMiee/kfoXPM+oRWaFGTnZ4yJP1OUKpPRT+11L3D8ZKsOXScjiAp2JBfasgUM0Sjc/hsdUi/f3LOtN78EQCT6TyFT/Z8XQLcnPS78SnvRuiKLSHYg2fITt+NcIFJU3C/tZo3sllzcT8GO23z3b+/OaEtYj6oANIpwsU3kd5RZiKu4uCqBIp8IcXf1qYeMCVETEHtpwzbJhrOekDmZUyfWLxOgcNRcu0eG/qEMGIMWNe8YZXpr0urEW82z8SYEQFX5C+ojSi+py8=
+
+# Configure mail notifications
+notifications:
+  email:
+    on_success: never
+    on_failure: always
