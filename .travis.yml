@@ -23,6 +23,7 @@ notifications:
 deploy:
   provider: bintray
   # on: master
+  all_branches: true
   file: ./bintray.json
   user: mwieland
   key:
