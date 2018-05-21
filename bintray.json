@@ -1,0 +1,21 @@
+{
+  "package": {
+    "name": "adv-commons",
+    "repo": "adv",
+    "subject": "adv",
+    "vcs_url": "https://github.com/ADVisualizer/ADV-Commons",
+    "licenses": [
+      "AGPL-V3"
+    ]
+  },
+  "version": {
+    "name": "${project.version}",
+    "released": "${build.timestamp}",
+    "gpgSign": false
+  },
+  "files":
+  [
+    {"includePattern": "build/libs/(.*)", "uploadPattern": "/$1"}
+  ],
+  "publish": true
+}
