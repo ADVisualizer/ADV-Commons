@@ -9,8 +9,8 @@
     ]
   },
   "version": {
-    "name": "${project.version}",
-    "released": "${build.timestamp}",
+    "name": "0.1",
+    "released": "2018-05-21",
     "gpgSign": false
   },
   "files":
