@@ -14,7 +14,7 @@ cache:
   - "$HOME/.gradle/wrapper/"
 
 before_install:
-  -chmod +x gradlew
+  - chmod +x gradlew
 
 # Deploy master commits to bintray
 before_deploy:
