@@ -2,7 +2,6 @@ package ch.hsr.adv.commons.core.logic.domain;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Represents the state of a data structure in the user's module
@@ -11,16 +10,16 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class Snapshot {
 
-    private static final transient AtomicInteger SNAPSHOT_COUNTER = new
-            AtomicInteger(0);
-
     private final long snapshotId;
     private String snapshotDescription;
     private List<ModuleGroup> moduleGroups = new ArrayList<>();
 
-
     public Snapshot() {
-        snapshotId = SNAPSHOT_COUNTER.incrementAndGet();
+        this(0);
+    }
+
+    public Snapshot(long snapshotId) {
+        this.snapshotId = snapshotId;
     }
 
     public long getSnapshotId() {
