@@ -10,6 +10,8 @@
       <module name="module-array_test" target="1.9" />
       <module name="module-graph_main" target="1.9" />
       <module name="module-graph_test" target="1.9" />
+      <module name="module-queue_main" target="1.9" />
+      <module name="module-queue_test" target="1.9" />
       <module name="module-stack_main" target="1.9" />
       <module name="module-stack_test" target="1.9" />
     </bytecodeTargetLevel>
