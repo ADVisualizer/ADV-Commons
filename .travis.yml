@@ -23,9 +23,7 @@ before_deploy:
 # https://docs.travis-ci.com/user/deployment/bintray
 deploy:
   provider: bintray
-  #on: master
-  on:
-    all_branches: true
+  on: master
   file: ./bintray.json
   user: mwieland
   key:

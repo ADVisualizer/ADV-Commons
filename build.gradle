@@ -220,7 +220,7 @@ publishing {
 
 model {
     tasks.generatePomFileForMavenCustomPublication {
-        destination = file("$buildDir/libs/pom.xml")
+        destination = file("$buildDir/libs/${project.name}-${project.version}.pom")
     }
 }
 
