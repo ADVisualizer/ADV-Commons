@@ -22,9 +22,9 @@ before_deploy:
 
 deploy:
   provider: bintray
+  # on: master
   on:
     all_branches: true
-  # on: master
   file: ./bintray.json
   skip_cleanup: true
   user: mwieland
