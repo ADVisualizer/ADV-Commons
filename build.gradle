@@ -147,6 +147,10 @@ bintray {
     user = System.getenv('BINTRAY_USER') // bintray username (not organisation)
     key = System.getenv('BINTRAY_KEY') // api-key
     override = true
+    filesSpec {
+        from 'build/libs'
+        into '.'
+    }
 
     publications = ['MavenCustom']
     pkg {
