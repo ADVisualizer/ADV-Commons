@@ -53,6 +53,7 @@ subprojects {
     spotbugs {
         excludeFilter = file("$project.rootDir/excludeFilter.xml")
     }
+
     tasks.withType(com.github.spotbugs.SpotBugsTask) {
         reports {
             xml.enabled = false
@@ -187,9 +188,9 @@ def pomConfig = {
     }
 
     scm {
-        url 'https://github.com/ADVisualizer/ADV-UI'
-        connection 'https://git@github.com/ADVisualizer/ADV-UI.git'
-        developerConnection 'scm:git:https://github.com/ADVisualizer/ADV-UI.git'
+        url 'https://github.com/ADVisualizer/ADV-Commons'
+        connection 'https://git@github.com/ADVisualizer/ADV-Commons.git'
+        developerConnection 'scm:git:https://github.com/ADVisualizer/ADV-Commons.git'
     }
 }
 
