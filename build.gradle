@@ -6,14 +6,12 @@ plugins {
 group = 'ch.hsr.adv'
 version = '0.1'
 
-
 /****************************************
  * instructions for all projects
  ****************************************/
 allprojects {
     apply plugin: 'java'
     apply plugin: 'idea'
-    apply plugin: 'eclipse'
     apply plugin: 'maven'
     apply plugin: 'maven-publish'
     apply plugin: 'jacoco'
@@ -147,6 +145,7 @@ bintray {
     user = System.getenv('BINTRAY_USER') // bintray username (not organisation)
     key = System.getenv('BINTRAY_KEY') // api-key
     override = true
+    publish = true
     filesSpec {
         from 'build/libs'
         into '.'
@@ -162,10 +161,6 @@ bintray {
         issueTrackerUrl = 'https://github.com/ADVisualizer/ADV-Commons/issues'
         vcsUrl = 'https://github.com/ADVisualizer/ADV-Commons.git'
         githubRepo = 'ADVisualizer/ADV-Commons'
-    }
-    version {
-        name = project.version
-        released = new Date()
     }
 }
 
