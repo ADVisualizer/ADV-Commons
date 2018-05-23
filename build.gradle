@@ -139,7 +139,7 @@ bintray {
     publish = true
     filesSpec {
         from 'build/libs'
-        into '.'
+        into "/ch/hsr/adv/adv-commons/${project.version}/"
     }
 
     publications = ['MavenCustom']
