@@ -11,7 +11,7 @@ import ch.hsr.adv.commons.core.logic.domain.styles.ADVStyle;
  * <p>
  * The style is overwritten by it subclasses.
  */
-public class ADVDefaultStyle implements ADVStyle {
+public class ADVDefaultElementStyle implements ADVStyle {
 
     protected int fillColor = ADVColor.STANDARD.getColorValue();
     protected int strokeColor = ADVColor.STANDARD.getColorValue();

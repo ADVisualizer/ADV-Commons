@@ -5,7 +5,7 @@ import ch.hsr.adv.commons.core.logic.domain.styles.ADVStrokeThickness;
 /**
  * Default style for relations
  */
-public class ADVDefaultRelationStyle extends ADVDefaultStyle {
+public class ADVDefaultRelationStyle extends ADVDefaultElementStyle {
 
     public ADVDefaultRelationStyle() {
         // overwrite fields explicitly instead of getter,
