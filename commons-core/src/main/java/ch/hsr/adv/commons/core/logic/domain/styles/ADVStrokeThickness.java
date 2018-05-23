@@ -5,11 +5,11 @@ package ch.hsr.adv.commons.core.logic.domain.styles;
  */
 public enum ADVStrokeThickness {
 
-    STANDARD(2), THIN(1), MEDIUM(2), THICK(3);
+    STANDARD(1.5), THIN(1.0), MEDIUM(2), THICK(2.5);
 
-    private int thickness;
+    private double thickness;
 
-    ADVStrokeThickness(int thickness) {
+    ADVStrokeThickness(double thickness) {
         this.thickness = thickness;
     }
 
@@ -23,7 +23,7 @@ public enum ADVStrokeThickness {
         return valueOf(ticknessName.toUpperCase());
     }
 
-    public int getThickness() {
+    public double getThickness() {
         return thickness;
     }
 }

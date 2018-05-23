@@ -11,14 +11,13 @@ public class ADVValueStyle implements ADVStyle {
     private int fillColor;
     private int strokeColor;
     private ADVStrokeStyle strokeStyle;
-    private int strokeThickness;
+    private double strokeThickness;
 
     /**
      * Default constructor which uses only default values
      */
     public ADVValueStyle() {
-        this(ADVColor.BLACK.getColorValue(),
-                ADVStrokeStyle.NONE,
+        this(ADVColor.BLACK.getColorValue(), ADVStrokeStyle.NONE,
                 ADVStrokeThickness.STANDARD.getThickness());
     }
 
@@ -31,7 +30,7 @@ public class ADVValueStyle implements ADVStyle {
      */
     public ADVValueStyle(int strokeColor,
                          ADVStrokeStyle strokeStyle,
-                         int strokeThickness) {
+                         double strokeThickness) {
 
         this(ADVColor.BLACK.getColorValue(), strokeColor, strokeStyle,
                 strokeThickness);
@@ -39,7 +38,7 @@ public class ADVValueStyle implements ADVStyle {
 
     public ADVValueStyle(int fillColor, int strokeColor,
                          ADVStrokeStyle strokeStyle,
-                         int strokeThickness) {
+                         double strokeThickness) {
 
         this.fillColor = fillColor;
         this.strokeColor = strokeColor;
@@ -99,7 +98,7 @@ public class ADVValueStyle implements ADVStyle {
     }
 
     @Override
-    public int getStrokeThickness() {
+    public double getStrokeThickness() {
         return strokeThickness;
     }
 
