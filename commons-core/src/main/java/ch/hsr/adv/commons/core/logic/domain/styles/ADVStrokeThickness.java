@@ -5,7 +5,7 @@ package ch.hsr.adv.commons.core.logic.domain.styles;
  */
 public enum ADVStrokeThickness {
 
-    STANDARD(1.5), THIN(1.0), MEDIUM(2), THICK(2.5);
+    THIN(1.0), STANDARD(1.5), MEDIUM(2), THICK(2.5);
 
     private double thickness;
 
