@@ -1,2 +1,6 @@
 dependencies {
+    compile "org.slf4j:slf4j-api:1+"
+    compile 'com.google.code.gson:gson:2.8.2'
+    compile group: 'com.google.inject', name: 'guice', version: '4+'
+    compile group: 'com.google.inject.extensions', name: 'guice-assistedinject', version: '4.2.0'
 }
