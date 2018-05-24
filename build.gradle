@@ -63,12 +63,7 @@ subprojects {
 
     // common dependencies
     dependencies {
-        //only use slf4j implementation (e.g. logback) in core
-        compile "org.slf4j:slf4j-api:1+"
-        compile 'com.google.code.gson:gson:2+'
-
-        testCompile "junit:junit:4+"
-        testCompile 'org.jukito:jukito:1+'
+        // put common dependencies in core -> all submodules need the core anyway
     }
 }
 
@@ -106,7 +101,6 @@ artifacts {
     archives javadocJar
 }
 
-
 /****************************************
  * Aggregate code coverage for Codecov coverage upload
  ****************************************/
@@ -118,10 +112,10 @@ task codeCoverageReport(type: JacocoReport) {
     }
 
     reports {
-        xml.enabled true
-        xml.destination "${buildDir}/reports/jacoco/report.xml"
-        html.enabled false
-        csv.enabled false
+        xml.enabled = true
+        xml.setDestination(file("${buildDir}/reports/jacoco/report.xml"))
+        html.enabled = false
+        csv.enabled = false
     }
 }
 
