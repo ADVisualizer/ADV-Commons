@@ -7,22 +7,17 @@ import ch.hsr.adv.commons.core.logic.domain.styles.ADVStrokeThickness;
 import ch.hsr.adv.commons.core.logic.domain.styles.ADVStyle;
 
 /**
- * The default implementation of the ADVCore Style sets standard values for all
- * style variables.
+ * The default style for ADV elements
+ * <p>
+ * The style is overwritten by it subclasses.
  */
-public class ADVDefaultStyle implements ADVStyle {
+public class ADVDefaultElementStyle implements ADVStyle {
 
-    private final int fillColor;
-    private final int strokeColor;
-    private final int strokeThickness;
-    private final String strokeStyle;
-
-    public ADVDefaultStyle() {
-        this.fillColor = ADVColor.STANDARD.getColorValue();
-        this.strokeColor = ADVColor.STANDARD.getColorValue();
-        this.strokeThickness = ADVStrokeThickness.STANDARD.getThickness();
-        this.strokeStyle = ADVStrokeStyle.SOLID.getStyle();
-    }
+    protected int fillColor = ADVColor.STANDARD.getColorValue();
+    protected int strokeColor = ADVColor.STANDARD.getColorValue();
+    protected double strokeThickness = ADVStrokeThickness.STANDARD
+            .getThickness();
+    protected String strokeStyle = ADVStrokeStyle.SOLID.getStyle();
 
     @Override
     public int getFillColor() {
@@ -40,7 +35,8 @@ public class ADVDefaultStyle implements ADVStyle {
     }
 
     @Override
-    public int getStrokeThickness() {
+    public double getStrokeThickness() {
         return strokeThickness;
     }
+
 }

@@ -35,5 +35,5 @@ public interface ADVStyle {
      *
      * @return the thickness of the stroke
      */
-    int getStrokeThickness();
+    double getStrokeThickness();
 }
