@@ -64,8 +64,6 @@ subprojects {
     // common dependencies
     dependencies {
         // put common dependencies in core -> all submodules need the core anyway
-        testCompile "junit:junit:4+"
-        testCompile 'org.jukito:jukito:1+'
     }
 }
 
