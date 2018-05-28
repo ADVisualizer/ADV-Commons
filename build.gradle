@@ -32,6 +32,11 @@ allprojects {
  ****************************************/
 subprojects {
 
+    // common dependencies
+    dependencies {
+        // put common dependencies in core -> all submodules need the core anyway
+    }
+
     checkstyle {
         ignoreFailures = false
         showViolations = true
@@ -60,11 +65,6 @@ subprojects {
             html.enabled = true
         }
     }
-
-    // common dependencies
-    dependencies {
-        // put common dependencies in core -> all submodules need the core anyway
-    }
 }
 
 /****************************************
@@ -88,10 +88,23 @@ jar {
 
 task sourcesJar(type: Jar, dependsOn: classes) {
     classifier = 'sources'
-    from sourceSets.main.allSource
+    def sourceProjects = subprojects.findAll { it.plugins.hasPlugin('java')}
+    from sourceProjects.collect { it.sourceSets.main.allJava }
 }
 
-task javadocJar(type: Jar, dependsOn: javadoc) {
+task alljavadoc(type: Javadoc, group: "Documentation") {
+    destinationDir = file("${buildDir}/docs/javadoc")
+    subprojects.each { proj ->
+        proj.tasks.withType(Javadoc).each { javadocTask ->
+            source += javadocTask.source
+            classpath += javadocTask.classpath
+            excludes += javadocTask.excludes
+            includes += javadocTask.includes
+        }
+    }
+}
+
+task javadocJar(type: Jar, dependsOn: alljavadoc) {
     classifier = 'javadoc'
     from javadoc.destinationDir
 }
