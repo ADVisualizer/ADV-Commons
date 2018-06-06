@@ -3,7 +3,7 @@ package ch.hsr.adv.commons.core.logic.domain.styles.presets;
 import ch.hsr.adv.commons.core.logic.domain.styles.ADVStrokeThickness;
 
 /**
- * Default style for relations
+ * Default style for ADV relations
  */
 public class ADVDefaultRelationStyle extends ADVDefaultElementStyle {
 

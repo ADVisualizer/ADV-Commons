@@ -18,7 +18,7 @@ public interface ADVVertex<T> extends ADVElement<T> {
     ADVGraph getGraph();
 
     /**
-     * Number of leaving edges.
+     * Returns the number of leaving edges.
      *
      * @return count of edges that only leave this node plus all undirected
      * edges.
@@ -26,7 +26,7 @@ public interface ADVVertex<T> extends ADVElement<T> {
     int getOutDegree();
 
     /**
-     * Number of entering edges.
+     * Returns the number of entering edges.
      *
      * @return count of edges that only enter this node plus all undirected
      * edges.

@@ -8,8 +8,6 @@ import ch.hsr.adv.commons.core.logic.domain.styles.ADVStyle;
 
 /**
  * The default style for ADV elements
- * <p>
- * The style is overwritten by it subclasses.
  */
 public class ADVDefaultElementStyle implements ADVStyle {
 

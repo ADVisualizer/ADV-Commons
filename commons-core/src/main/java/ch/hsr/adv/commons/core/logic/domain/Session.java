@@ -75,7 +75,7 @@ public class Session {
 
     /**
      * @param id of the snapshot
-     * @return the snapshot with the speified id or a new 'dummy' if no such
+     * @return the snapshot with the specified id or a new 'dummy' if no such
      * snapshot exists.
      */
     public Snapshot getSnapshotById(long id) {

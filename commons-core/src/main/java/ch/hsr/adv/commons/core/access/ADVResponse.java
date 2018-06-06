@@ -1,7 +1,7 @@
 package ch.hsr.adv.commons.core.access;
 
 /**
- * Encapsulates a response from the ADVCore UI.
+ * Encapsulates a response from the ADV UI.
  */
 public class ADVResponse {
 

@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Represents the state of a data structure in the user's module
- * implementation. A snapshot always belongs to a session. It is sent to the
- * ADVCore UI to be displayed.
+ * Represents the state of a data structure in the user's code. A snapshot
+ * always belongs to a session. It is sent from the ADV Lib to the
+ * ADV UI to be displayed.
  */
 public class Snapshot {
 

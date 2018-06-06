@@ -14,7 +14,7 @@ public class ADVValueStyle implements ADVStyle {
     private double strokeThickness;
 
     /**
-     * Default constructor which uses only default values
+     * Default constructor which uses default values
      */
     public ADVValueStyle() {
         this(ADVColor.BLACK.getColorValue(), ADVStrokeStyle.NONE,
@@ -52,7 +52,7 @@ public class ADVValueStyle implements ADVStyle {
     }
 
     /**
-     * Set the fill color if it is a valid color. Valid values are between
+     * Sets the fill color if it is a valid color. Valid values are between
      * 0x000000 and 0xffffff
      *
      * @param fillColor hex color value to be set
@@ -73,7 +73,7 @@ public class ADVValueStyle implements ADVStyle {
     }
 
     /**
-     * Set the stroke color if it is a valid color. Valid values are between
+     * Sets the stroke color if it is a valid color. Valid values are between
      * 0x000000 and 0xffffff
      *
      * @param strokeColor hex color value to be set
