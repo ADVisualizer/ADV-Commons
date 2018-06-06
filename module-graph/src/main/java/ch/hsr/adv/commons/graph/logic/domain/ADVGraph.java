@@ -69,7 +69,7 @@ public interface ADVGraph<V extends ADVElement, E extends ADVRelation> {
     Collection<E> getEdges();
 
     /**
-     * Get a vertex by its identifier
+     * Gets a vertex by its identifier
      *
      * @param id identifier
      * @return vertex

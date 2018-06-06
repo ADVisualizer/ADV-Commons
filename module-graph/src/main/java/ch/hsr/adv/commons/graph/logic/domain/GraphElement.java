@@ -5,9 +5,9 @@ import ch.hsr.adv.commons.core.logic.domain.styles.ADVStyle;
 
 /**
  * Represents the content of a graph vertex.
- * Only use this class to be transmitted to the UI!
+ * Dont' use this class in the user codebase.
  * <p>
- * This name adapter is used, so the user can freely choose its class field
+ * This name adapter is used, so the user can freely choose the class field
  * names.
  * It is important that the field names match. Otherwise the UI would not
  * recognise the fields, as they can be named totally arbitrarily.

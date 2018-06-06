@@ -5,7 +5,7 @@ import ch.hsr.adv.commons.core.logic.domain.styles.ADVStyle;
 
 /**
  * Represents the content of one array index.
- * Only use this class to be transmitted to the UI.
+ * Don't use this class in the user codebase.
  */
 public class ArrayElement implements ADVElement<String> {
 

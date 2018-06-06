@@ -6,9 +6,9 @@ import ch.hsr.adv.commons.core.logic.domain.styles.ADVStyle;
 
 /**
  * Represents the content of one queue element.
- * Only use this class for transmission to the UI.
+ * Don't use this class in the user codebase.
  * <p>
- * Remark: The class could also be package-scoped, however would have be
+ * Remark: The class could also be package-scoped, however would have to be
  * moved to the parent-package in order to by accessible by the QueueBuilder.
  */
 public class QueueElement implements ADVElement<String> {
