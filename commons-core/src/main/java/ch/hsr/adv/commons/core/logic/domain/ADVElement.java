@@ -3,7 +3,7 @@ package ch.hsr.adv.commons.core.logic.domain;
 import ch.hsr.adv.commons.core.logic.domain.styles.ADVStyle;
 
 /**
- * Represents a generic elements which is displayed on the ADV UI.
+ * Represents a generic element which is displayed on the ADV UI.
  *
  * @param <T> content type
  */

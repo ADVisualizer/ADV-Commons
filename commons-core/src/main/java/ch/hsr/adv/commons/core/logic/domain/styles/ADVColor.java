@@ -1,7 +1,7 @@
 package ch.hsr.adv.commons.core.logic.domain.styles;
 
 /**
- * Defines the color of the background or border of an element.
+ * Defines the color of the background or border of an element or a relation.
  * <p>
  * Uses the material colors:
  * LIGHT = 200

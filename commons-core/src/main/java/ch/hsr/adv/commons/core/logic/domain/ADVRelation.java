@@ -3,7 +3,7 @@ package ch.hsr.adv.commons.core.logic.domain;
 import ch.hsr.adv.commons.core.logic.domain.styles.ADVStyle;
 
 /**
- * A relation represents an actual connection between two elements.
+ * A relation represents a connection between or an order of two elements.
  *
  * @param <T> label type
  */

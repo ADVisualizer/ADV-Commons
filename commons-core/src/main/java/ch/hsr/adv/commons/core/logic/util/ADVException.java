@@ -1,7 +1,7 @@
 package ch.hsr.adv.commons.core.logic.util;
 
 /**
- * The main exception class to be used for ADVCore projects.
+ * The main exception class to be used for ADV projects.
  */
 public class ADVException extends Exception {
     /**
