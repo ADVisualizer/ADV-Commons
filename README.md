@@ -9,4 +9,5 @@
 The Algorithm & Data Structure Visualizer (ADV) helps students to understand the concepts of several data structures and algorithms, taught at the University of Applied Science in Rapperswil (HSR).
 
 ## ADV-Commons
-ADV-Commons encapsulates classes used by both ADV-UI and ADV-Lib. It is already included in ADV-UI and ADV-Lib and does not need to be included in a user project. 
+ADV-Commons encapsulates classes used by both [ADV-UI](https://github.com/ADVisualizer/ADV-UI) and [ADV-Lib](https://github.com/ADVisualizer/ADV-Lib). 
+It is already included in ADV-UI and ADV-Lib and does not need to be included in a user project. 
