@@ -6,6 +6,7 @@
 [![codecov](https://codecov.io/gh/ADVisualizer/ADV-Commons/branch/develop/graph/badge.svg)](https://codecov.io/gh/ADVisualizer/ADV-Commons)
 <a href="https://structure101.com/"><img src="http://structure101.com/images/s101_170.png" width="90" height="21"></a>
 
+The Algorithm & Data Structure Visualizer (ADV) helps students to understand the concepts of several data structures and algorithms, taught at the University of Applied Science in Rapperswil (HSR).
 
 ## ADV-Commons
-Commons Container of the ADV application
+ADV-Commons encapsulates classes used by both ADV-UI and ADV-Lib. It is already included in ADV-UI and ADV-Lib and does not need to be included in a user project. 
