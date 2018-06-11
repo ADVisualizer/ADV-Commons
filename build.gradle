@@ -1,0 +1,244 @@
+plugins {
+    id 'com.github.spotbugs' version '1.6.0'
+    id "com.jfrog.bintray" version "1.8.0"
+}
+
+group = 'ch.hsr.adv'
+version = '1.0'
+
+/****************************************
+ * instructions for all projects
+ ****************************************/
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'maven'
+    apply plugin: 'maven-publish'
+    apply plugin: 'jacoco'
+    apply plugin: 'checkstyle'
+    apply plugin: 'com.github.spotbugs'
+
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+
+    sourceCompatibility = 1.9
+    targetCompatibility = 1.9
+}
+
+/****************************************
+ * instructions for each sub project
+ ****************************************/
+subprojects {
+
+    // common dependencies
+    dependencies {
+        // put common dependencies in core -> all submodules need the core anyway
+    }
+
+    checkstyle {
+        ignoreFailures = false
+        showViolations = true
+        configFile = file("${project.rootDir}/checkstyle.xml")
+        checkstyleTest.enabled = false
+    }
+
+    jacocoTestReport {
+        additionalSourceDirs = files(sourceSets.main.allSource.srcDirs)
+        sourceDirectories = files(sourceSets.main.allSource.srcDirs)
+        classDirectories = files(sourceSets.main.output)
+        reports {
+            html.enabled = true
+            xml.enabled = true
+            csv.enabled = false
+        }
+    }
+
+    spotbugs {
+        excludeFilter = file("$project.rootDir/excludeFilter.xml")
+    }
+
+    tasks.withType(com.github.spotbugs.SpotBugsTask) {
+        reports {
+            xml.enabled = false
+            html.enabled = true
+        }
+    }
+}
+
+/****************************************
+ * Single library "fat-jar" containing all sub projects and 3rd party dependencies
+ ****************************************/
+configurations {
+    childJars
+}
+
+dependencies {
+    subprojects.each {
+        childJars project(it.path)
+    }
+}
+
+jar {
+    dependsOn configurations.childJars
+    exclude('**/logback.xml')
+    from { configurations.childJars.collect { zipTree(it) } }
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    def sourceProjects = subprojects.findAll { it.plugins.hasPlugin('java')}
+    from sourceProjects.collect { it.sourceSets.main.allJava }
+}
+
+task alljavadoc(type: Javadoc, group: "Documentation") {
+    destinationDir = file("${buildDir}/docs/javadoc")
+    subprojects.each { proj ->
+        proj.tasks.withType(Javadoc).each { javadocTask ->
+            source += javadocTask.source
+            classpath += javadocTask.classpath
+            excludes += javadocTask.excludes
+            includes += javadocTask.includes
+        }
+    }
+}
+
+task javadocJar(type: Jar, dependsOn: alljavadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+
+/****************************************
+ * Aggregate code coverage for Codecov coverage upload
+ ****************************************/
+task codeCoverageReport(type: JacocoReport) {
+    executionData fileTree(project.rootDir.absolutePath).include("**/build/jacoco/*.exec")
+
+    subprojects.each {
+        sourceSets it.sourceSets.main
+    }
+
+    reports {
+        xml.enabled = true
+        xml.setDestination(file("${buildDir}/reports/jacoco/report.xml"))
+        html.enabled = false
+        csv.enabled = false
+    }
+}
+
+codeCoverageReport.dependsOn {
+    subprojects*.test
+}
+
+/****************************************
+ * Bintray deployment (needed for Maven Central)
+ ****************************************/
+Properties properties = new Properties()
+File deploymentProp = project.rootProject.file('deployment.properties')
+if (deploymentProp.exists()) {
+    properties.load(deploymentProp.newDataInputStream())
+}
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+    override = true
+    publish = true
+    filesSpec {
+        from 'build/libs'
+        into "/ch/hsr/adv/adv-commons/${project.version}/"
+    }
+
+    publications = ['MavenCustom']
+    pkg {
+        repo = 'adv'
+        name = 'adv-commons'
+        userOrg = 'adv'
+        licenses = ['AGPL-V3']
+        websiteUrl = 'https://github.com/ADVisualizer/ADV-Commons'
+        issueTrackerUrl = 'https://github.com/ADVisualizer/ADV-Commons/issues'
+        vcsUrl = 'https://github.com/ADVisualizer/ADV-Commons.git'
+        githubRepo = 'ADVisualizer/ADV-Commons'
+        version {
+            gpg {
+                sign = true
+                passphrase = properties.getProperty("bintray.gpg.password")
+            }
+            mavenCentralSync {
+                user = properties.getProperty("bintray.oss.user")
+                password = properties.getProperty("bintray.oss.password")
+                sync = true //[Default: true] Determines whether to sync the version to Maven Central.
+                close = '1' //Optional property. By default the staging repository is closed and artifacts are released to Maven Central. You can optionally turn this behaviour off (by puting 0 as value) and release the version manually.
+            }
+        }
+    }
+}
+
+// Create the pom configuration:
+def pomConfig = {
+    licenses {
+        license {
+            name 'GNU AFFERO GENERAL PUBLIC LICENSE, Version 3.0'
+            url 'https://www.gnu.org/licenses/agpl.txt'
+            distribution 'repo'
+        }
+    }
+    developers {
+        developer {
+            id 'mwieland'
+            name 'Michael Wieland'
+            email 'mwieland@hsr.ch'
+        }
+        developer {
+            id 'mtrentini'
+            name 'Muriele Trentini'
+            email 'mtrentin@hsr.ch'
+        }
+    }
+
+    scm {
+        url 'https://github.com/ADVisualizer/ADV-Commons'
+        connection 'https://git@github.com/ADVisualizer/ADV-Commons.git'
+        developerConnection 'scm:git:https://github.com/ADVisualizer/ADV-Commons.git'
+    }
+}
+
+// Create the publication with the pom configuration:
+publishing {
+    publications {
+        MavenCustom(MavenPublication) {
+            from components.java
+            artifact sourcesJar {
+                classifier "sources"
+            }
+            artifact javadocJar {
+                classifier "javadoc"
+            }
+            groupId project.group
+            artifactId project.name
+            version project.version
+            pom.withXml {
+                def root = asNode()
+                root.appendNode('description', 'Common classes of the algorithm and data structure visualizer project')
+                root.appendNode('name', 'ADV Commons')
+                root.appendNode('url', 'https://github.com/ADVisualizer/ADV-Commons')
+                root.children().last() + pomConfig
+            }
+        }
+    }
+}
+
+model {
+    tasks.generatePomFileForMavenCustomPublication {
+        destination = file("$buildDir/libs/${project.name}-${project.version}.pom")
+    }
+}
+
+
+

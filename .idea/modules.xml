@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/adv-commons.iml" filepath="$PROJECT_DIR$/.idea/modules/adv-commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/adv-commons_main.iml" filepath="$PROJECT_DIR$/.idea/modules/adv-commons_main.iml" group="adv-commons" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/adv-commons_test.iml" filepath="$PROJECT_DIR$/.idea/modules/adv-commons_test.iml" group="adv-commons" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/commons-core/commons-core.iml" filepath="$PROJECT_DIR$/.idea/modules/commons-core/commons-core.iml" group="commons-core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/commons-core/commons-core_main.iml" filepath="$PROJECT_DIR$/.idea/modules/commons-core/commons-core_main.iml" group="commons-core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/commons-core/commons-core_test.iml" filepath="$PROJECT_DIR$/.idea/modules/commons-core/commons-core_test.iml" group="commons-core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/module-array/module-array.iml" filepath="$PROJECT_DIR$/.idea/modules/module-array/module-array.iml" group="module-array" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/module-array/module-array_main.iml" filepath="$PROJECT_DIR$/.idea/modules/module-array/module-array_main.iml" group="module-array" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/module-array/module-array_test.iml" filepath="$PROJECT_DIR$/.idea/modules/module-array/module-array_test.iml" group="module-array" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/module-graph/module-graph.iml" filepath="$PROJECT_DIR$/.idea/modules/module-graph/module-graph.iml" group="module-graph" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/module-graph/module-graph_main.iml" filepath="$PROJECT_DIR$/.idea/modules/module-graph/module-graph_main.iml" group="module-graph" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/module-graph/module-graph_test.iml" filepath="$PROJECT_DIR$/.idea/modules/module-graph/module-graph_test.iml" group="module-graph" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/module-queue.iml" filepath="$PROJECT_DIR$/.idea/modules/module-queue.iml" group="module-queue" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/module-queue/module-queue.iml" filepath="$PROJECT_DIR$/.idea/modules/module-queue/module-queue.iml" group="module-queue" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/module-queue/module-queue_main.iml" filepath="$PROJECT_DIR$/.idea/modules/module-queue/module-queue_main.iml" group="module-queue" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/module-queue/module-queue_test.iml" filepath="$PROJECT_DIR$/.idea/modules/module-queue/module-queue_test.iml" group="module-queue" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/module-stack/module-stack.iml" filepath="$PROJECT_DIR$/.idea/modules/module-stack/module-stack.iml" group="module-stack" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/module-stack/module-stack_main.iml" filepath="$PROJECT_DIR$/.idea/modules/module-stack/module-stack_main.iml" group="module-stack" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/module-stack/module-stack_test.iml" filepath="$PROJECT_DIR$/.idea/modules/module-stack/module-stack_test.iml" group="module-stack" />
+    </modules>
+  </component>
+</project>
