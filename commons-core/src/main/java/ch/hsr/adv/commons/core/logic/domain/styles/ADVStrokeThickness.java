@@ -7,7 +7,7 @@ public enum ADVStrokeThickness {
 
     THIN(1.0), STANDARD(1.5), MEDIUM(2), THICK(2.5);
 
-    private double thickness;
+    private final double thickness;
 
     ADVStrokeThickness(double thickness) {
         this.thickness = thickness;

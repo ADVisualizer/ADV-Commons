@@ -87,6 +87,6 @@ public interface ADVGraph<V extends ADVElement, E extends ADVRelation> {
      * @param source vertex
      * @return neighbors
      */
-    List<ADVVertex> getNeighbors(ADVVertex source);
+    List<ADVVertex<?>> getNeighbors(ADVVertex<?> source);
 
 }

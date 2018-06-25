@@ -10,8 +10,8 @@ import java.util.List;
 public class ModuleGroup {
 
     private final String moduleName;
-    private final List<ADVElement> elements = new ArrayList<>();
-    private final List<ADVRelation> relations = new ArrayList<>();
+    private final List<ADVElement<?>> elements = new ArrayList<>();
+    private final List<ADVRelation<?>> relations = new ArrayList<>();
     private final List<String> flags = new ArrayList<>();
 
     public ModuleGroup(String moduleName) {
@@ -27,7 +27,7 @@ public class ModuleGroup {
      *
      * @param element element to add
      */
-    public void addElement(ADVElement element) {
+    public void addElement(ADVElement<?> element) {
         elements.add(element);
     }
 
@@ -40,11 +40,11 @@ public class ModuleGroup {
         relations.add(relation);
     }
 
-    public List<ADVElement> getElements() {
+    public List<ADVElement<?>> getElements() {
         return elements;
     }
 
-    public List<ADVRelation> getRelations() {
+    public List<ADVRelation<?>> getRelations() {
         return relations;
     }
 

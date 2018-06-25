@@ -21,11 +21,11 @@ import ch.hsr.adv.commons.core.logic.domain.styles.ADVStyle;
  */
 public class GraphElement implements ADVElement<String> {
 
-    private long id;
+    private final long id;
+    private final ADVStyle style;
+    private final int fixedPosX;
+    private final int fixedPosY;
     private String content;
-    private ADVStyle style;
-    private int fixedPosX;
-    private int fixedPosY;
 
     public GraphElement(ADVVertex vertex) {
         this.id = vertex.getId();

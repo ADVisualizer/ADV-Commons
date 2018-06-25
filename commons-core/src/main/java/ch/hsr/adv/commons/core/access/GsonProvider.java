@@ -36,7 +36,7 @@ public class GsonProvider {
     public GsonBuilder getMinifier() {
         return minifier;
     }
-    
+
     /**
      * Gets a pretty-printing json serializer to create a json representation
      * of an object.

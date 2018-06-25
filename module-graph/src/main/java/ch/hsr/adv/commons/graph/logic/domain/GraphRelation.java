@@ -21,11 +21,11 @@ import ch.hsr.adv.commons.core.logic.domain.styles.ADVStyle;
  */
 public class GraphRelation implements ADVRelation<String> {
 
+    private final boolean isDirected;
+    private final ADVStyle style;
     private long sourceElementId;
     private long targetElementId;
-    private boolean isDirected;
     private String label;
-    private ADVStyle style;
 
     public GraphRelation(ADVEdge edge) {
         this.sourceElementId = edge.getSourceElementId();
