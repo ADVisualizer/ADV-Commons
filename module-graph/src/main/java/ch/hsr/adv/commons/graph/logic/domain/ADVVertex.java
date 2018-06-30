@@ -5,6 +5,11 @@ import ch.hsr.adv.commons.core.logic.domain.styles.ADVStyle;
 
 /**
  * A Vertex holds a value.
+ * <p>
+ * This class suppresses rawtype warnings, because Gson does not support
+ * generic wildcards. See
+ * <a href="https://github.com/ADVisualizer/ADV-Lib/issues/31">Issue 31</a>
+ * for more details.
  *
  * @param <T> the value of the vertex
  */

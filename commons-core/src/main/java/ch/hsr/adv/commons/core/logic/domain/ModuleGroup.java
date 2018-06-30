@@ -6,6 +6,11 @@ import java.util.List;
 /**
  * A module group wraps all module specific elements and allows us to address
  * multiple modules in a snapshot.
+ * <p>
+ * This class suppresses rawtype warnings, because Gson does not support
+ * generic wildcards. See
+ * <a href="https://github.com/ADVisualizer/ADV-Lib/issues/31">Issue 31</a>
+ * for more details.
  */
 @SuppressWarnings("rawtypes")
 public class ModuleGroup {
