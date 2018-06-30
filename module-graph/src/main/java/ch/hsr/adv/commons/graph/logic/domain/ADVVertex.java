@@ -15,6 +15,7 @@ public interface ADVVertex<T> extends ADVElement<T> {
      *
      * @return graph
      */
+    @SuppressWarnings("rawtypes")
     ADVGraph getGraph();
 
     /**

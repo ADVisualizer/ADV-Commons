@@ -27,6 +27,7 @@ public class GraphRelation implements ADVRelation<String> {
     private long targetElementId;
     private String label;
 
+    @SuppressWarnings("rawtypes")
     public GraphRelation(ADVEdge edge) {
         this.sourceElementId = edge.getSourceElementId();
         this.targetElementId = edge.getTargetElementId();

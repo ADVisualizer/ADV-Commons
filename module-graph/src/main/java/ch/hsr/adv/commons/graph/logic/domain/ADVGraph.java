@@ -14,6 +14,7 @@ import java.util.List;
  * @param <E> edge type
  * @author mwieland
  */
+@SuppressWarnings("rawtypes")
 public interface ADVGraph<V extends ADVElement, E extends ADVRelation> {
 
     /**
@@ -87,6 +88,6 @@ public interface ADVGraph<V extends ADVElement, E extends ADVRelation> {
      * @param source vertex
      * @return neighbors
      */
-    List<ADVVertex<?>> getNeighbors(ADVVertex<?> source);
+    List<ADVVertex> getNeighbors(ADVVertex<?> source);
 
 }

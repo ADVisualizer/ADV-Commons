@@ -27,6 +27,7 @@ public class GraphElement implements ADVElement<String> {
     private final int fixedPosY;
     private String content;
 
+    @SuppressWarnings("rawtypes")
     public GraphElement(ADVVertex vertex) {
         this.id = vertex.getId();
         if (vertex.getContent() != null) {
