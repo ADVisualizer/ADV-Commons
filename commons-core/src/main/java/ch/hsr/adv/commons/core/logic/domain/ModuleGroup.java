@@ -6,7 +6,13 @@ import java.util.List;
 /**
  * A module group wraps all module specific elements and allows us to address
  * multiple modules in a snapshot.
+ * <p>
+ * This class suppresses rawtype warnings, because Gson does not support
+ * generic wildcards. See
+ * <a href="https://github.com/ADVisualizer/ADV-Lib/issues/31">Issue 31</a>
+ * for more details.
  */
+@SuppressWarnings("rawtypes")
 public class ModuleGroup {
 
     private final String moduleName;
@@ -27,7 +33,7 @@ public class ModuleGroup {
      *
      * @param element element to add
      */
-    public void addElement(ADVElement element) {
+    public void addElement(ADVElement<?> element) {
         elements.add(element);
     }
 
@@ -36,7 +42,7 @@ public class ModuleGroup {
      *
      * @param relation relation to add
      */
-    public void addRelation(ADVRelation relation) {
+    public void addRelation(ADVRelation<?> relation) {
         relations.add(relation);
     }
 

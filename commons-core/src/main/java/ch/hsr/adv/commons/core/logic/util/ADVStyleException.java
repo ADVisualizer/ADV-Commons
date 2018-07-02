@@ -5,6 +5,8 @@ package ch.hsr.adv.commons.core.logic.util;
  */
 public class ADVStyleException extends ADVException {
 
+    private static final long serialVersionUID = 1L;
+
     public ADVStyleException(String message) {
         super(message);
     }
