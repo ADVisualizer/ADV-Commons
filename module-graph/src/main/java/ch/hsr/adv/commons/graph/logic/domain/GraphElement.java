@@ -18,15 +18,21 @@ import ch.hsr.adv.commons.core.logic.domain.styles.ADVStyle;
  * superfluous.
  * <p>
  * https://github.com/google/gson/pull/1094
+ * <p>
+ * This class suppresses rawtype warnings, because Gson does not support
+ * generic wildcards. See
+ * <a href="https://github.com/ADVisualizer/ADV-Lib/issues/31">Issue 31</a>
+ * for more details.
  */
 public class GraphElement implements ADVElement<String> {
 
-    private long id;
+    private final long id;
+    private final ADVStyle style;
+    private final int fixedPosX;
+    private final int fixedPosY;
     private String content;
-    private ADVStyle style;
-    private int fixedPosX;
-    private int fixedPosY;
 
+    @SuppressWarnings("rawtypes")
     public GraphElement(ADVVertex vertex) {
         this.id = vertex.getId();
         if (vertex.getContent() != null) {

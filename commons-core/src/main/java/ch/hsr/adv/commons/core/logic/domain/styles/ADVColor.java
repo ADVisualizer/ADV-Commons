@@ -37,7 +37,7 @@ public enum ADVColor {
     GRAY(0x616161),
     GRAY_DARK(0x212121);
 
-    private int colorValue;
+    private final int colorValue;
 
     ADVColor(int colorValue) {
         this.colorValue = colorValue;

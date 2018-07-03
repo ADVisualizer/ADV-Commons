@@ -9,12 +9,19 @@ import java.util.List;
 /**
  * A graph contains a set of edges and vertices and offeres methods to add
  * and remove them from its collections.
+ * <p>
+ * This class suppresses rawtype warnings, because Gson does not support
+ * generic wildcards. See
+ * <a href="https://github.com/ADVisualizer/ADV-Lib/issues/31">Issue 31</a>
+ * for more details.
  *
  * @param <V> vertex type
  * @param <E> edge type
  * @author mwieland
  */
+@SuppressWarnings("rawtypes")
 public interface ADVGraph<V extends ADVElement, E extends ADVRelation> {
+
 
     /**
      * Adds a new vertex to the graph
@@ -87,6 +94,6 @@ public interface ADVGraph<V extends ADVElement, E extends ADVRelation> {
      * @param source vertex
      * @return neighbors
      */
-    List<ADVVertex> getNeighbors(ADVVertex source);
+    List<ADVVertex> getNeighbors(ADVVertex<?> source);
 
 }

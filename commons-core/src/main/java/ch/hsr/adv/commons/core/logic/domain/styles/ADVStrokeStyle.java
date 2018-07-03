@@ -16,7 +16,7 @@ public enum ADVStrokeStyle {
     @SerializedName("none")
     NONE("none");
 
-    private String style;
+    private final String style;
 
     ADVStrokeStyle(String style) {
         this.style = style.toLowerCase();
