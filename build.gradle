@@ -1,5 +1,5 @@
 plugins {
-    id 'com.github.spotbugs' version '1.6.0'
+    id 'com.github.spotbugs' version '1.6.3'
     id "com.jfrog.bintray" version "1.8.0"
 }
 
@@ -23,8 +23,8 @@ allprojects {
         mavenCentral()
     }
 
-    sourceCompatibility = 1.9
-    targetCompatibility = 1.9
+    sourceCompatibility = 1.10
+    targetCompatibility = 1.10
 }
 
 /****************************************
