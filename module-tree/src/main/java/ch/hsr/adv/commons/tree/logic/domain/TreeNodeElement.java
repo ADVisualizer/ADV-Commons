@@ -27,7 +27,7 @@ public class TreeNodeElement implements ADVElement<String> {
     private ADVStyle style;
     private String content;
 
-    public TreeNodeElement(ADVBinaryTreeNode<?> node, long id) {
+    public TreeNodeElement(ADVTreeNode<?> node, long id) {
         if (node == null) {
             throw new IllegalArgumentException("node must not be null");
         }
