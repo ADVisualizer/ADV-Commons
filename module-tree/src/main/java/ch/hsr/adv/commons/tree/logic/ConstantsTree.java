@@ -16,6 +16,12 @@ public class ConstantsTree {
     public static final String MODULE_NAME_GENERAL_TREE = "tree-general";
 
     /**
+     * Binary array tree module name
+     */
+    public static final String MODULE_NAME_BINARY_ARRAY_TREE =
+            "tree-binary-array";
+
+    /**
      * Flag for binary-trees to show array-indices
      */
     public static final String SHOW_ARRAY_INDICES = "show-array-indices";
