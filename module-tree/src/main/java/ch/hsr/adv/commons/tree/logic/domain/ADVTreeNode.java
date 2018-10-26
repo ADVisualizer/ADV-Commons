@@ -7,7 +7,7 @@ import ch.hsr.adv.commons.core.logic.domain.styles.ADVStyle;
  *
  * @param <T> the value of the TreeNode
  */
-interface ADVTreeNode<T> {
+public interface ADVTreeNode<T> {
 
     /**
      * Returns the style for to the element
