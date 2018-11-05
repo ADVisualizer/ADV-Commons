@@ -22,6 +22,11 @@ public class ConstantsTree {
             "tree-binary-array";
 
     /**
+     * Collection tree Module name
+     */
+    public static final String MODULE_NAME_COLLECTION_TREE = "tree-collection";
+
+    /**
      * Flag for binary-trees to show array-indices
      */
     public static final String SHOW_ARRAY_INDICES = "show-array-indices";
