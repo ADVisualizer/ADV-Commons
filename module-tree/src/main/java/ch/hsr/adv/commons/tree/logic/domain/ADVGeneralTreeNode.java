@@ -12,5 +12,5 @@ public interface ADVGeneralTreeNode<T> extends ADVTreeNode<T> {
      * if the node has no children the return value should be an empty list
      * @return child nodes
      */
-    List<ADVGeneralTreeNode<T>> getChildren();
+    List<? extends ADVGeneralTreeNode<T>> getChildren();
 }
