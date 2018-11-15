@@ -2,18 +2,20 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="adv-commons_main" target="1.9" />
-      <module name="adv-commons_test" target="1.9" />
-      <module name="commons-core_main" target="1.9" />
-      <module name="commons-core_test" target="1.9" />
-      <module name="module-array_main" target="1.9" />
-      <module name="module-array_test" target="1.9" />
-      <module name="module-graph_main" target="1.9" />
-      <module name="module-graph_test" target="1.9" />
-      <module name="module-queue_main" target="1.9" />
-      <module name="module-queue_test" target="1.9" />
-      <module name="module-stack_main" target="1.9" />
-      <module name="module-stack_test" target="1.9" />
+      <module name="adv-commons_main" target="1.10" />
+      <module name="adv-commons_test" target="1.10" />
+      <module name="commons-core_main" target="1.10" />
+      <module name="commons-core_test" target="1.10" />
+      <module name="module-array_main" target="1.10" />
+      <module name="module-array_test" target="1.10" />
+      <module name="module-graph_main" target="1.10" />
+      <module name="module-graph_test" target="1.10" />
+      <module name="module-queue_main" target="1.10" />
+      <module name="module-queue_test" target="1.10" />
+      <module name="module-stack_main" target="1.10" />
+      <module name="module-stack_test" target="1.10" />
+      <module name="module-tree_main" target="1.10" />
+      <module name="module-tree_test" target="1.10" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -4,6 +4,8 @@
  ****************************************/
 rootProject.name = 'adv-commons'
 
+enableFeaturePreview('STABLE_PUBLISHING')
+
 //-- gradle submodules --//
 // ADV Core
 include 'commons-core'
@@ -13,4 +15,5 @@ include 'module-array'
 include 'module-stack'
 include 'module-graph'
 include 'module-queue'
+include 'module-tree'
 

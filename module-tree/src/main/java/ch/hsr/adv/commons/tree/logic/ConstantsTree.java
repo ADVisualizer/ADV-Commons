@@ -1,0 +1,33 @@
+package ch.hsr.adv.commons.tree.logic;
+
+/**
+ * Tree module-specific constants
+ */
+public class ConstantsTree {
+
+    /**
+     * Binary tree Module name
+     */
+    public static final String MODULE_NAME_BINARY_TREE = "tree-binary";
+
+    /**
+     * General tree Module name
+     */
+    public static final String MODULE_NAME_GENERAL_TREE = "tree-general";
+
+    /**
+     * Binary array tree module name
+     */
+    public static final String MODULE_NAME_BINARY_ARRAY_TREE =
+            "tree-binary-array";
+
+    /**
+     * Collection tree Module name
+     */
+    public static final String MODULE_NAME_COLLECTION_TREE = "tree-collection";
+
+    /**
+     * Flag for binary-trees to show array-indices
+     */
+    public static final String SHOW_ARRAY_INDICES = "show-array-indices";
+}
