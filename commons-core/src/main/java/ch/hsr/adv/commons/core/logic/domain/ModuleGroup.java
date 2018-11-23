@@ -1,7 +1,9 @@
 package ch.hsr.adv.commons.core.logic.domain;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * A module group wraps all module specific elements and allows us to address
@@ -19,6 +21,7 @@ public class ModuleGroup {
     private final List<ADVElement> elements = new ArrayList<>();
     private final List<ADVRelation> relations = new ArrayList<>();
     private final List<String> flags = new ArrayList<>();
+    private final Map<String, String> metaData = new HashMap<>();
 
     public ModuleGroup(String moduleName) {
         this.moduleName = moduleName;
@@ -58,4 +61,7 @@ public class ModuleGroup {
         return flags;
     }
 
+    public Map<String, String> getMetaData() {
+        return metaData;
+    }
 }
