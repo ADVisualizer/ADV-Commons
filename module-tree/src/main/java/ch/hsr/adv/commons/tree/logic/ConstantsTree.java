@@ -1,5 +1,7 @@
 package ch.hsr.adv.commons.tree.logic;
 
+import ch.hsr.adv.commons.core.logic.domain.ModulePosition;
+
 /**
  * Tree module-specific constants
  */
@@ -44,4 +46,11 @@ public class ConstantsTree {
      * it is needed because of the special circumstance of a right hanging tree
      */
     public static final String MAX_TREE_HEIGHT_RIGHT = "max-right-tree-height";
+
+    /**
+     * this constant is used to declare where the array module should be
+     * displayed in the ui
+     */
+    public static final ModulePosition ARRAY_MODULE_VISUALISATION_POSITION
+            = ModulePosition.BOTTOM;
 }
