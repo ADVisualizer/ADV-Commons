@@ -22,9 +22,15 @@ public class ModuleGroup {
     private final List<ADVRelation> relations = new ArrayList<>();
     private final List<String> flags = new ArrayList<>();
     private final Map<String, String> metaData = new HashMap<>();
+    private final ModulePosition position;
 
     public ModuleGroup(String moduleName) {
+        this(moduleName, ModulePosition.DEFAULT);
+    }
+
+    public ModuleGroup(String moduleName, ModulePosition position) {
         this.moduleName = moduleName;
+        this.position = position;
     }
 
     public String getModuleName() {
@@ -63,5 +69,9 @@ public class ModuleGroup {
 
     public Map<String, String> getMetaData() {
         return metaData;
+    }
+
+    public ModulePosition getPosition() {
+        return position;
     }
 }
